@@ -5,7 +5,7 @@
  */
 package gui;
 
-import coordinators.TransactionCoordinator;
+import coordinators.TransactionsCoordinator;
 import java.awt.CardLayout;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,7 +19,7 @@ import javax.swing.JTable;
  */
 public class HomePage extends javax.swing.JFrame {
 
-    private TransactionCoordinator tCoordinator = new TransactionCoordinator();
+    private TransactionsCoordinator tCoordinator = new TransactionsCoordinator();
 
     /**
      * Creates new form NewJFrame
