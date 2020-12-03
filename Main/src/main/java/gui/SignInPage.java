@@ -190,6 +190,7 @@ public class SignInPage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Password was sent to your email successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 String otp = JOptionPane.showInputDialog(this, "Enter the password", "Enter OTP", JOptionPane.PLAIN_MESSAGE);
                 if (gCoordinator.otpMatches(otp)) {
+                    gCoordinator.setAccountNum(accountNum);
                     this.dispose();
                     new HomePage().setVisible(true);
                 } else {
@@ -200,7 +201,7 @@ public class SignInPage extends javax.swing.JFrame {
             }
 
         }
-        
+
     }//GEN-LAST:event_useOtpBtnActionPerformed
 
     /**
