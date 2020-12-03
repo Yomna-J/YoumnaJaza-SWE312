@@ -157,7 +157,7 @@ public class SignInPage extends javax.swing.JFrame {
         } else {
             int accountNum = Integer.parseInt(accountNumField.getText());
             String password = gCoordinator.charArrayToString(passField.getPassword());
-            if (gCoordinator.isRigestered(accountNum, password) == true) {
+            if (gCoordinator.areValidCredentials(accountNum, password) == true) {
                 gCoordinator.setAccountNum(accountNum);
                 this.dispose();
                 new HomePage().setVisible(true);
