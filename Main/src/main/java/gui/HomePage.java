@@ -578,7 +578,7 @@ public class HomePage extends javax.swing.JFrame {
         if (!tCoordinator.isMoneyAmount(withdrawField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Amount of Money", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            double amount = tCoordinator.toDouble(withdrawField.getText());
+            double amount = Double.parseDouble(withdrawField.getText());
             if (tCoordinator.withdraw(amount)) {
                 JOptionPane.showMessageDialog(this, amount + " SR Withdrawal has been done Successfully. Remaining: " + tCoordinator.getBalance() + " SR", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -591,7 +591,7 @@ public class HomePage extends javax.swing.JFrame {
         if (!tCoordinator.isMoneyAmount(depositField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Amount of Money", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            double amount = tCoordinator.toDouble(depositField.getText());
+            double amount = Double.parseDouble(depositField.getText());
             if (tCoordinator.deposit(amount)) {
                 JOptionPane.showMessageDialog(this, amount + " SR Deposit has been done successfully. Balance: " + tCoordinator.getBalance() + " SR", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else {
