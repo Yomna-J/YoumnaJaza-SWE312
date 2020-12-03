@@ -11,31 +11,32 @@ public class BusinessRules {
     /**
      * The maximum double amount of money per each withdrawal operation.
      */
-    private final static double maxWithdraw = 5000.0;
+    private final static double MAX_Withdraw = 5000.0;
     /**
      * The minimum double amount of money per each withdrawal operation.
      */
-    private final static double minWithdraw = 50.0;
+    private final static double MIN_Withdraw = 50.0;
     /**
      * The maximum double amount of money per each deposit operation.
      */
-    private final static double maxDeposit = 12000.0;
+    private final static double MAX_DEPOSIT = 12000.0;
     /**
      * The minimum double amount of money per each deposit operation.
      */
-    private final static double minDeposit = 100.0;
+    private final static double MIN_DEPOSIT = 100.0;
     /**
      * The maximum double amount of money per each transfer operation.
      */
-    private final static double maxTransfer = 10000.0;
+    private final static double MAX_TRANSFER = 10000.0;
     /**
      * The minimum double amount of money per each transfer operation.
      */
-    private final static double minTransfer = 1000.0;
+    private final static double MIN_TRANSFER = 1000.0;
     /**
      * The maximum number of transactions per day.
      */
-    private final static int numOfAllowedTransactions = 5;
+    private final static int NUM_OF_ALLOWED_TRANSACTIONS = 5;
+    private static int numOfAllowedTransactions;
 
     /**
      * Checks if the user's balance is larger than the amount.
@@ -45,7 +46,7 @@ public class BusinessRules {
      * @return true if the withdrawal is allowed; false otherwise.
      */
     public static boolean isValidWithdraw(double balance, double amount) {
-        return balance >= amount && amount <= maxWithdraw && amount >= minWithdraw;
+        return balance >= amount && amount <= MAX_Withdraw && amount >= MIN_Withdraw;
     }
 
     /**
@@ -57,7 +58,17 @@ public class BusinessRules {
      */
     public static boolean isValidTransfer(double balance, double amount) {
 
-        return balance >= amount && amount <= maxTransfer && amount >= minTransfer;
+        return balance >= amount && amount <= MAX_TRANSFER && amount >= MIN_TRANSFER;
+    }
+
+    /**
+     * Checks if the amount meets the banking rules.
+     *
+     * @param amount amount to deposit.
+     * @return true if the amount meets the banking rules; false otherwise.
+     */
+    public static boolean isValidDeposit(double amount) {
+        return amount <= MAX_DEPOSIT && amount >= MIN_DEPOSIT;
     }
 
     /**
@@ -70,15 +81,5 @@ public class BusinessRules {
      */
     public static boolean isValidTransaction(int numOfTransactions) {
         return numOfTransactions < numOfAllowedTransactions;
-    }
-
-    /**
-     * Checks if the amount meets the banking rules.
-     *
-     * @param amount amount to deposit.
-     * @return true if the amount meets the banking rules; false otherwise.
-     */
-    public static boolean isValidDeposit(double amount) {
-        return amount <= maxDeposit && amount >= minDeposit;
     }
 }
