@@ -98,7 +98,7 @@ public class DBOperations {
         int numOfTransactions = 0;
         if (connection != null) {
             try {
-                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT COUNT(*) AS rowcount FROM transactions WHERE date IN ( SELECT date FROM transactions GROUP BY date HAVING count(*) > 1 ) AND account_num = ?");
+                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT COUNT(*) AS rowcount FROM transactions WHERE date IN ( SELECT date FROM transactions GROUP BY date HAVING count(*) > 1 AND date= \"2020-12-04\") AND account_num = ?");
                 statment.setInt(1, accountNum);
                 ResultSet result = statment.executeQuery();
                 while (result.next()) {
