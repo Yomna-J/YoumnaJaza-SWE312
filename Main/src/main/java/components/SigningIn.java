@@ -1,18 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package components;
 
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
-import com.sendgrid.helpers.mail.Mail;
-import com.sendgrid.helpers.mail.objects.Content;
-import com.sendgrid.helpers.mail.objects.Email;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,11 +13,9 @@ import java.util.logging.Logger;
  */
 public class SigningIn {
 
-    private int userId = 0;
-    private int accountNum = 0;
-    Connection connection = DBConnection.connectDB();
+    private Connection connection = DBConnection.connectDB();
     public boolean userSignIn(int accountNum, String password) {
-
+        int userId;
         
         if (connection != null) {
             try {
@@ -44,7 +29,6 @@ public class SigningIn {
                     statment.setString(2, password);
                     result = statment.executeQuery();
                     if (result.next()) {
-                        this.accountNum = accountNum;
                         return true;
                     } else {
                         return false;
@@ -83,7 +67,7 @@ public class SigningIn {
         }return false;
     }
     public String getEmail(int accountNum){
-     
+     int userId;
         if (connection != null) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT user_id FROM accounts WHERE account_num = ?");

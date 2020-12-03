@@ -182,20 +182,21 @@ public class SignInPage extends javax.swing.JFrame {
     }//GEN-LAST:event_passFieldActionPerformed
 
     private void useOtpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useOtpBtnActionPerformed
-        if (!gCoordinator.isNumeric(accountNumField.getText()) && !gCoordinator.isRigestered(Integer.parseInt(accountNumField.getText()))) {
+        if (!gCoordinator.isNumeric(accountNumField.getText()) || !gCoordinator.isRigestered(Integer.parseInt(accountNumField.getText()))) {
             JOptionPane.showMessageDialog(this, "Invalid Account Number", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             int accountNum = Integer.parseInt(accountNumField.getText());
             if (gCoordinator.sendEmail(accountNum)) {
                 JOptionPane.showMessageDialog(this, "Password was sent to your email successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 String otp = JOptionPane.showInputDialog(this, "Enter the password", "Enter OTP", JOptionPane.PLAIN_MESSAGE);
+
                 if (gCoordinator.otpMatches(otp)) {
                     gCoordinator.setAccountNum(accountNum);
                     this.dispose();
                     new HomePage().setVisible(true);
-                } else {
+                } else if (otp != null) {
                     JOptionPane.showMessageDialog(this, "Wrong password", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+                } 
             } else {
                 JOptionPane.showMessageDialog(this, "Error with the rigestered email", "Error", JOptionPane.ERROR_MESSAGE);
             }
