@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package components;
 
 import java.sql.Connection;
@@ -12,17 +7,31 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * The class Registration is used to register new users by establishing a
+ * connection with @see {@link DBConnection}
  *
  * @author youmna
  */
 public class Registration {
 
+    /**
+     * It registers a new user by using SQL queries and a connection with the
+     * database through @see {@link DBConnection}.
+     *
+     * @param accountNum the user's account number.
+     * @param userId the user's ID.
+     * @param name the user's name.
+     * @param password the user's account password.
+     * @param phoneNum the user's phone number.
+     * @param email the user's email.
+     */
     public Registration(int accountNum, int userId, String name, String password, String phoneNum, String email) {
         Connection connection = DBConnection.connectDB();
 
         if (connection != null) {
             try {
-                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("INSERT INTO users (user_id,name,password,phone_num,email) VALUES(?,?,?,?,?)");
+                PreparedStatement statment = (PreparedStatement) 
+                        connection.prepareStatement("INSERT INTO users (user_id,name,password,phone_num,email) VALUES(?,?,?,?,?)");
                 statment.setInt(1, userId);
                 statment.setString(2, name);
                 statment.setString(3, password);
@@ -38,12 +47,12 @@ public class Registration {
                 statment.executeUpdate();
             } catch (SQLException exception) {
                 Logger.getLogger(gui.SignUpPage.class.getName()).log(Level.SEVERE, null, exception);
-            }finally{
-                try{
+            } finally {
+                try {
                     connection.close();
-                }catch(SQLException exception){}
+                } catch (SQLException exception) {
+                }
             }
         }
-
     }
 }
