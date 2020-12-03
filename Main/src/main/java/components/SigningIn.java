@@ -18,8 +18,6 @@ public class SigningIn {
     /**
      * An object of <b>DBConnection</b> class.
      */
-    private static final Connection connection = DBConnection.connectDB();
-
     /**
      * Checks if the credentials of the user are correct by using SQL query.
      *
@@ -28,6 +26,8 @@ public class SigningIn {
      * @return true if the credentials are correct; false otherwise.
      */
     public boolean signIn(int accountNum, String password) {
+        Connection connection = DBConnection.connectDB();
+
         int userId = getUserId(accountNum);
         if (connection != null && userId != 0) {
             try {
@@ -57,6 +57,8 @@ public class SigningIn {
      * @return true if the account number exists; false otherwise.
      */
     public boolean isRigesteredAccountNum(int accountNum) {
+        Connection connection = DBConnection.connectDB();
+
         if (connection != null) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT account_num FROM accounts WHERE account_num = ?");
@@ -67,6 +69,11 @@ public class SigningIn {
                 }
             } catch (SQLException exception) {
                 Logger.getLogger(gui.HomePage.class.getName()).log(Level.SEVERE, null, exception);
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException exception) {
+                }
             }
         }
         return false;
@@ -79,6 +86,8 @@ public class SigningIn {
      * @return string value of the email that belongs to that account number.
      */
     public String getEmail(int accountNum) {
+        Connection connection = DBConnection.connectDB();
+
         int userId = getUserId(accountNum);
         if (connection != null && userId != 0) {
             try {
@@ -112,6 +121,8 @@ public class SigningIn {
      * @return integer value of the user id that belongs to that account number.
      */
     private int getUserId(int accountNum) {
+        Connection connection = DBConnection.connectDB();
+
         int userId = 0;
         if (connection != null) {
             try {
@@ -120,9 +131,15 @@ public class SigningIn {
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
                     userId = result.getInt("user_id");
+                    return userId;
                 }
             } catch (SQLException exception) {
                 Logger.getLogger(gui.SignInPage.class.getName()).log(Level.SEVERE, null, exception);
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException exception) {
+                }
             }
         }
         return userId;
