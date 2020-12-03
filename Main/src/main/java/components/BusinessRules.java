@@ -15,7 +15,7 @@ public class BusinessRules {
     /**
      * The minimum double amount of money per each withdrawal operation.
      */
-    private static final double MIN_WiITHDRAW = 50.0;
+    private static final double MIN_WITHDRAW = 50.0;
     /**
      * The maximum double amount of money per each deposit operation.
      */
@@ -45,7 +45,7 @@ public class BusinessRules {
      * @return true if the withdrawal is allowed; false otherwise.
      */
     public static boolean isValidWithdraw(double balance, double amount) {
-        return balance >= amount && amount <= MAX_WITHDRAW && amount >= MIN_WiITHDRAW;
+        return balance >= amount && amount <= MAX_WITHDRAW && amount >= MIN_WITHDRAW;
     }
 
     /**
