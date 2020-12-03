@@ -8,33 +8,35 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * The class SigningIn contains methods to sign in and some SQL queries by
+ * establishing a connection with @see {@link DBConnection}.
  *
  * @author youmna
  */
 public class SigningIn {
 
-    private Connection connection = DBConnection.connectDB();
-    public boolean userSignIn(int accountNum, String password) {
-        int userId;
-        
-        if (connection != null) {
+    /**
+     * An object of <b>DBConnection</b> class.
+     */
+    private static final Connection connection = DBConnection.connectDB();
+
+    /**
+     * Checks if the credentials of the user are correct by using SQL query.
+     *
+     * @param accountNum the user's account number.
+     * @param password the user account password.
+     * @return true if the credentials are correct; false otherwise.
+     */
+    public boolean signIn(int accountNum, String password) {
+        int userId = getUserId(accountNum);
+        if (connection != null && userId != 0) {
             try {
-                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("Select user_id FROM accounts WHERE account_num = ?");
-                statment.setInt(1, accountNum);
+                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("Select * from users WHERE user_id = ? AND password = ? ");
+                statment.setInt(1, userId);
+                statment.setString(2, password);
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
-                    userId = result.getInt("user_id");
-                    statment = (PreparedStatement) connection.prepareStatement("Select * from users WHERE user_id = ? AND password = ? ");
-                    statment.setInt(1, userId);
-                    statment.setString(2, password);
-                    result = statment.executeQuery();
-                    if (result.next()) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
+                    return true;
                 }
             } catch (SQLException exception) {
                 Logger.getLogger(gui.SignInPage.class.getName()).log(Level.SEVERE, null, exception);
@@ -42,32 +44,75 @@ public class SigningIn {
                 try {
                     connection.close();
                 } catch (SQLException exception) {
-
                 }
             }
         }
         return false;
     }
-    
-    public boolean isRigesteredAccountNum(int accountNum){
+
+    /**
+     * Checks if the account number exists in the database.
+     *
+     * @param accountNum the user account number
+     * @return true if the account number exists; false otherwise.
+     */
+    public boolean isRigesteredAccountNum(int accountNum) {
         if (connection != null) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT account_num FROM accounts WHERE account_num = ?");
                 statment.setInt(1, accountNum);
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
-
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return true;
+                }
             } catch (SQLException exception) {
                 Logger.getLogger(gui.HomePage.class.getName()).log(Level.SEVERE, null, exception);
             }
-        }return false;
+        }
+        return false;
     }
-    public String getEmail(int accountNum){
-     int userId;
+
+    /**
+     * Retrieve the email of a specific account number.
+     *
+     * @param accountNum the user account number.
+     * @return string value of the email that belongs to that account number.
+     */
+    public String getEmail(int accountNum) {
+        int userId = getUserId(accountNum);
+        if (connection != null && userId != 0) {
+            try {
+                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT email FROM users WHERE user_id = ? ");
+                statment.setInt(1, userId);
+                ResultSet result = statment.executeQuery();
+                if (result.next()) {
+                    String email = result.getString("email");
+                    return email;
+                } else {
+                    return null;
+                }
+            } catch (SQLException exception) {
+                Logger.getLogger(gui.SignInPage.class.getName()).log(Level.SEVERE, null, exception);
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException exception) {
+                    //Ignored
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Used by some methods in this class to retrieve the user id of a specific
+     * account number.
+     *
+     * @param accountNum the user account number.
+     * @return integer value of the user id that belongs to that account number.
+     */
+    private int getUserId(int accountNum) {
+        int userId = 0;
         if (connection != null) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT user_id FROM accounts WHERE account_num = ?");
@@ -75,28 +120,11 @@ public class SigningIn {
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
                     userId = result.getInt("user_id");
-                    statment = (PreparedStatement) connection.prepareStatement("SELECT email FROM users WHERE user_id = ? ");
-                    statment.setInt(1, userId);
-                    result = statment.executeQuery();
-                    if (result.next()) {
-                        String email = result.getString("email");
-                        return email;
-
-                    } else {
-                        return null;
-                    }
-                } 
+                }
             } catch (SQLException exception) {
                 Logger.getLogger(gui.SignInPage.class.getName()).log(Level.SEVERE, null, exception);
-            } finally {
-                try {
-                    connection.close();
-                } catch (SQLException exception) {
-
-                }
             }
         }
-      return null;
+        return userId;
     }
-
 }
