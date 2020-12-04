@@ -3,7 +3,8 @@ package components;
 import java.sql.*;
 
 /**
- * The <b>DBConnection</b> class that establishes connection with a database on a local host.
+ * The <b>DBConnection</b> class establishes connection with a database running
+ * on a local host.
  */
 public class DBConnection {
 
@@ -23,8 +24,8 @@ public class DBConnection {
     /**
      * Establishes a connection with the database.
      *
-     * @return an object of {@link Connection}Connection class if the
-     * connection is successful; null otherwise;
+     * @return an object of {@link Connection}Connection class if the connection
+     * is successful; null otherwise;
      */
     public static Connection connectDB() {
         Connection connection = null;

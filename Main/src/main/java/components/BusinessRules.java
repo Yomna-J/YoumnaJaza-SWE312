@@ -1,7 +1,8 @@
 package components;
 
 /**
- * The <b>BusinessRules</b> class contains the business rules specified by the bank.
+ * The <b>BusinessRules</b> class contains the business rules specified by the
+ * bank.
  */
 public class BusinessRules {
 
@@ -68,11 +69,12 @@ public class BusinessRules {
     }
 
     /**
-     * Compares the passed number of transactions to the number of allowed transactions per day.
+     * Compares the passed number of transactions to the number of allowed
+     * transactions per day.
      *
      * @param numOfTransactions the number of transactions per day.
-     * @return true if the number of transactions is less than or equal to the number of
-     * allowed transactions; false otherwise.
+     * @return true if the number of transactions is less than or equal to the
+     * number of allowed transactions; false otherwise.
      */
     public static boolean isValidTransaction(int numOfTransactions) {
         return numOfTransactions < NUM_OF_ALLOWED_TRANSACTIONS;

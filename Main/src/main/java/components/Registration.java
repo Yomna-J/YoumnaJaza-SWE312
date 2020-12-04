@@ -48,6 +48,7 @@ public class Registration {
                 try {
                     connection.close();
                 } catch (SQLException exception) {
+                    //Ignored
                 }
             }
         }
