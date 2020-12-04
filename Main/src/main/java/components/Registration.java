@@ -7,16 +7,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * The class Registration is used to register new users by establishing a
- * connection with @see {@link DBConnection}
- *
- * @author youmna
+ * The <b>Registration</b> class is used to register new users by establishing a
+ * connection using the {@link DBConnection} class.
  */
 public class Registration {
 
     /**
      * It registers a new user by using SQL queries and a connection with the
-     * database through @see {@link DBConnection}.
+     * database through the {@link DBConnection} class.
      *
      * @param accountNum the user's account number.
      * @param userId the user's ID.
@@ -30,8 +28,7 @@ public class Registration {
 
         if (connection != null) {
             try {
-                PreparedStatement statment = (PreparedStatement) 
-                        connection.prepareStatement("INSERT INTO users (user_id,name,password,phone_num,email) VALUES(?,?,?,?,?)");
+                PreparedStatement statment = (PreparedStatement) connection.prepareStatement("INSERT INTO users (user_id,name,password,phone_num,email) VALUES(?,?,?,?,?)");
                 statment.setInt(1, userId);
                 statment.setString(2, name);
                 statment.setString(3, password);

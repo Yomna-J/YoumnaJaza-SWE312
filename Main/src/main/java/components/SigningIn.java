@@ -8,10 +8,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * The class SigningIn contains methods to sign in and some SQL queries by
- * establishing a connection with @see {@link DBConnection}.
- *
- * @author youmna
+ * The <b>SigningIn</b> class contains some methods and SQL queries sued to sign
+ * in and to establish a connection with {@link DBConnection}.
  */
 public class SigningIn {
 
@@ -19,7 +17,7 @@ public class SigningIn {
      * Checks if the credentials of the user are correct by using SQL query.
      *
      * @param accountNum the user's account number.
-     * @param password the user account password.
+     * @param password the user's account password.
      * @return true if the credentials are correct; false otherwise.
      */
     public static boolean signIn(int accountNum, String password) {
@@ -40,6 +38,7 @@ public class SigningIn {
                 try {
                     connection.close();
                 } catch (SQLException exception) {
+                    //Ignored
                 }
             }
         }
@@ -68,6 +67,7 @@ public class SigningIn {
                 try {
                     connection.close();
                 } catch (SQLException exception) {
+                    //Ignored
                 }
             }
         }
@@ -111,8 +111,9 @@ public class SigningIn {
      * Used by some methods in this class to retrieve the user id of a specific
      * account number.
      *
-     * @param accountNum the user account number.
-     * @return integer value of the user id that belongs to that account number.
+     * @param accountNum the user's account number.
+     * @return the integer value of the user id that belongs to that account
+     * number.
      */
     private static int getUserId(int accountNum) {
         Connection connection = DBConnection.connectDB();
@@ -132,6 +133,7 @@ public class SigningIn {
                 try {
                     connection.close();
                 } catch (SQLException exception) {
+                    //Ignored
                 }
             }
         }

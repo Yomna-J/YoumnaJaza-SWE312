@@ -3,19 +3,16 @@ package components;
 import java.sql.*;
 
 /**
- * A class that establishes connection with a database on a local host.
- *
- * @author youmna
- *
+ * The <b>DBConnection</b> class that establishes connection with a database on a local host.
  */
 public class DBConnection {
 
     /**
-     * The URL to the database.
+     * The URL of the database.
      */
     private static final String DB_URL = "jdbc:mysql://localhost/banking_sys";
     /**
-     * The user name of the database to sign in.
+     * The username of the database to sign in.
      */
     private static final String USERNAME = "root";
     /**
@@ -24,9 +21,9 @@ public class DBConnection {
     private static final String PASS = "";
 
     /**
-     * Establish a connection with the database
+     * Establishes a connection with the database.
      *
-     * @return an object of @see {@link Connection}Connection class if the
+     * @return an object of {@link Connection}Connection class if the
      * connection is successful; null otherwise;
      */
     public static Connection connectDB() {

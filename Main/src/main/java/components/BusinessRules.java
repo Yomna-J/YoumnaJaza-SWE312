@@ -1,7 +1,7 @@
 package components;
 
 /**
- * The <b>BusinessRules</b> contains the business rules specified by the bank.
+ * The <b>BusinessRules</b> class contains the business rules specified by the bank.
  */
 public class BusinessRules {
 
