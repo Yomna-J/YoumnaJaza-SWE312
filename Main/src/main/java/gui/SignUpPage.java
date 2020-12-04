@@ -3,10 +3,10 @@ package gui;
 import coordinators.SignUpCoordinator;
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ * The <b>SignUpPage</b> JFrame is the GUI for registration.
+ * @author youmna
  */
 public class SignUpPage extends javax.swing.JFrame {
 
@@ -15,7 +15,6 @@ public class SignUpPage extends javax.swing.JFrame {
      */
     public SignUpPage() {
         initComponents();
-
     }
 
     /**
@@ -180,6 +179,10 @@ public class SignUpPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passFieldActionPerformed
 
+    /**
+     * Creates an object of {@link SignUpCoordinator} to check the user's input.
+     * @param evt 
+     */
     private void signUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBtnActionPerformed
 
         SignUpCoordinator sCoordinator = new SignUpCoordinator();
