@@ -3,10 +3,9 @@ package gui;
 import coordinators.GeneralCoordinator;
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * The <b>SignInPage</b> JFrame is the main page of the program that allows the
+ * user to sign in or to register.
  */
 public class SignInPage extends javax.swing.JFrame {
 
@@ -148,6 +147,11 @@ public class SignInPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Allows the user to sign in.
+     *
+     * @param evt
+     */
     private void signInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBtnActionPerformed
 
         if (!gCoordinator.isNumeric(accountNumField.getText())) {
@@ -166,7 +170,11 @@ public class SignInPage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_signInBtnActionPerformed
-
+    /**
+     * Switches the page to the registration page.
+     *
+     * @param evt
+     */
     private void signUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBtnActionPerformed
         this.dispose();
         new SignUpPage().setVisible(true);
@@ -181,6 +189,11 @@ public class SignInPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passFieldActionPerformed
 
+    /**
+     * Allows the user to sign in using an OTP.
+     *
+     * @param evt
+     */
     private void useOtpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useOtpBtnActionPerformed
         if (!gCoordinator.isNumeric(accountNumField.getText()) || !gCoordinator.isRigestered(Integer.parseInt(accountNumField.getText()))) {
             JOptionPane.showMessageDialog(this, "Invalid Account Number", "Error", JOptionPane.ERROR_MESSAGE);
@@ -196,7 +209,7 @@ public class SignInPage extends javax.swing.JFrame {
                     new HomePage().setVisible(true);
                 } else if (otp != null) {
                     JOptionPane.showMessageDialog(this, "Wrong password", "Error", JOptionPane.ERROR_MESSAGE);
-                } 
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Error with the rigestered email", "Error", JOptionPane.ERROR_MESSAGE);
             }
