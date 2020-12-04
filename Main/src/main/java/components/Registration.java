@@ -17,19 +17,19 @@ public class Registration {
      * database through the {@link DBConnection} class.
      *
      * @param accountNum the user's account number.
-     * @param userId the user's ID.
+     * @param userID the user's ID.
      * @param name the user's name.
      * @param password the user's account password.
      * @param phoneNum the user's phone number.
      * @param email the user's email.
      */
-    public Registration(int accountNum, int userId, String name, String password, String phoneNum, String email) {
+    public Registration(int accountNum, int userID, String name, String password, String phoneNum, String email) {
         Connection connection = DBConnection.connectDB();
 
         if (connection != null) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("INSERT INTO users (user_id,name,password,phone_num,email) VALUES(?,?,?,?,?)");
-                statment.setInt(1, userId);
+                statment.setInt(1, userID);
                 statment.setString(2, name);
                 statment.setString(3, password);
                 statment.setString(4, phoneNum);
@@ -38,7 +38,7 @@ public class Registration {
                 double balance = 0.00;
                 statment = (PreparedStatement) connection.prepareStatement("INSERT INTO accounts (account_num,user_id,name,balance) VALUES(?,?,?,?)");
                 statment.setInt(1, accountNum);
-                statment.setInt(2, userId);
+                statment.setInt(2, userID);
                 statment.setString(3, name);
                 statment.setDouble(4, balance);
                 statment.executeUpdate();

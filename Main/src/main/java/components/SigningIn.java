@@ -22,11 +22,11 @@ public class SigningIn {
      */
     public static boolean signIn(int accountNum, String password) {
         Connection connection = DBConnection.connectDB();
-        int userId = getUserId(accountNum);
-        if (connection != null && userId != 0) {
+        int userID = getUserId(accountNum);
+        if (connection != null && userID != 0) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("Select * from users WHERE user_id = ? AND password = ? ");
-                statment.setInt(1, userId);
+                statment.setInt(1, userID);
                 statment.setString(2, password);
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
@@ -82,11 +82,11 @@ public class SigningIn {
      */
     public static String getEmail(int accountNum) {
         Connection connection = DBConnection.connectDB();
-        int userId = getUserId(accountNum);
-        if (connection != null && userId != 0) {
+        int userID = getUserId(accountNum);
+        if (connection != null && userID != 0) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT email FROM users WHERE user_id = ? ");
-                statment.setInt(1, userId);
+                statment.setInt(1, userID);
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
                     String email = result.getString("email");
@@ -117,15 +117,15 @@ public class SigningIn {
      */
     private static int getUserId(int accountNum) {
         Connection connection = DBConnection.connectDB();
-        int userId = 0;
+        int userID = 0;
         if (connection != null) {
             try {
                 PreparedStatement statment = (PreparedStatement) connection.prepareStatement("SELECT user_id FROM accounts WHERE account_num = ?");
                 statment.setInt(1, accountNum);
                 ResultSet result = statment.executeQuery();
                 if (result.next()) {
-                    userId = result.getInt("user_id");
-                    return userId;
+                    userID = result.getInt("user_id");
+                    return userID;
                 }
             } catch (SQLException exception) {
                 Logger.getLogger(gui.SignInPage.class.getName()).log(Level.SEVERE, null, exception);
@@ -137,6 +137,6 @@ public class SigningIn {
                 }
             }
         }
-        return userId;
+        return userID;
     }
 }
