@@ -7,15 +7,12 @@ package gui;
 
 import coordinators.TransactionsCoordinator;
 import java.awt.CardLayout;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 /**
  *
- * @author youmna
+ * The <b>HomePage</b> JFrame is the home page that appears to the user after
+ * successful login.
  */
 public class HomePage extends javax.swing.JFrame {
 
@@ -26,7 +23,7 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
-        
+
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "mainPanel");
         jLabel2.setText(tCoordinator.getName());
@@ -558,22 +555,42 @@ public class HomePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Switches the page to the deposit page.
+     *
+     * @param evt
+     */
     private void depositPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositPageBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "depositPanel");
     }//GEN-LAST:event_depositPageBtnActionPerformed
 
+    /**
+     * Shows the us
+     *
+     * @param evt
+     */
     private void checkBalanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBalanceBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "checkBalancePanel");
         balanceAmountLabel.setText(tCoordinator.getBalance() + " SR");
     }//GEN-LAST:event_checkBalanceBtnActionPerformed
 
+    /**
+     * Switches the page to withdrawal page.
+     *
+     * @param evt
+     */
     private void withdrawPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawPageBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "withdrawPanel");
     }//GEN-LAST:event_withdrawPageBtnActionPerformed
 
+    /**
+     * Withdraw the money.
+     *
+     * @param evt
+     */
     private void withdrawBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawBtnActionPerformed
         if (!tCoordinator.isMoneyAmount(withdrawField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Amount of Money", "Error", JOptionPane.ERROR_MESSAGE);
@@ -587,6 +604,11 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_withdrawBtnActionPerformed
 
+    /**
+     * Deposit money.
+     *
+     * @param evt
+     */
     private void depositBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositBtnActionPerformed
         if (!tCoordinator.isMoneyAmount(depositField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Amount of Money", "Error", JOptionPane.ERROR_MESSAGE);
@@ -600,6 +622,11 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_depositBtnActionPerformed
 
+    /**
+     * Switches the page to the transactions history page.
+     *
+     * @param evt
+     */
     private void TransHistoryPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransHistoryPageBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "checkTransactionsPanel");
@@ -607,12 +634,22 @@ public class HomePage extends javax.swing.JFrame {
         transactionsTable.setEnabled(false);
     }//GEN-LAST:event_TransHistoryPageBtnActionPerformed
 
+    /**
+     * Switches the page to add beneficiary page.
+     *
+     * @param evt
+     */
     private void addBeneficiaryPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBeneficiaryPageBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "addBeneficiaryPanel");
 
     }//GEN-LAST:event_addBeneficiaryPageBtnActionPerformed
 
+    /**
+     * Adds a beneficiary.
+     *
+     * @param evt
+     */
     private void addBeneficiaryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBeneficiaryBtnActionPerformed
         if (!tCoordinator.isNumeric(beneficiaryAccountNumField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Account Number", "Error", JOptionPane.ERROR_MESSAGE);
@@ -628,6 +665,11 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addBeneficiaryBtnActionPerformed
 
+    /**
+     * Switches the page to my beneficiaries page.
+     *
+     * @param evt
+     */
     private void myBeneficiariesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBeneficiariesBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "myBeneficiariesPanel");
@@ -635,11 +677,21 @@ public class HomePage extends javax.swing.JFrame {
         beneficiariesTable.setEnabled(false);
     }//GEN-LAST:event_myBeneficiariesBtnActionPerformed
 
+    /**
+     * Switches the page to transfer money page.
+     *
+     * @param evt
+     */
     private void transferMoneyPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferMoneyPageBtnActionPerformed
         CardLayout card = (CardLayout) homePanel.getLayout();
         card.show(homePanel, "transferMoneyPanel");
     }//GEN-LAST:event_transferMoneyPageBtnActionPerformed
 
+    /**
+     * Transfers money to a beneficiary.
+     *
+     * @param evt
+     */
     private void transferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBtnActionPerformed
         if (!tCoordinator.isNumeric(transferBeneficiaryNumField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Account Number", "Error", JOptionPane.ERROR_MESSAGE);
@@ -647,24 +699,26 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Invalid Amount of Money", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!tCoordinator.isBeneficiary(Integer.parseInt(transferBeneficiaryNumField.getText()))) {
             JOptionPane.showMessageDialog(this, "Beneficary is not Registered as a Beneficary Account", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
+        } else {
             double amount = Double.parseDouble(transferAmountField.getText());
             int beneficiaryNum = Integer.parseInt(transferBeneficiaryNumField.getText());
-            if(tCoordinator.transferTo(amount, beneficiaryNum)){
+            if (tCoordinator.transferTo(amount, beneficiaryNum)) {
                 JOptionPane.showMessageDialog(this, amount + " SR Transferred has been done successfully. Balance: " + tCoordinator.getBalance() + " SR", "Success", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                 JOptionPane.showMessageDialog(this, "Denied Operation", "Denied", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Denied Operation", "Denied", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_transferBtnActionPerformed
 
+    /**
+     * Logs the user out.
+     * @param evt 
+     */
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
-      // tCoordinator.logOut();
-       this.dispose();
-       new SignInPage().setVisible(true);
+        this.dispose();
+        new SignInPage().setVisible(true);
     }//GEN-LAST:event_logOutBtnActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */
