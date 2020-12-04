@@ -1,10 +1,7 @@
-/**
- *The package contains the main components of the Banking system
- */
 package components;
 
 /**
- * Contains the business rules specified by the bank
+ * The <b>BusinessRules</b> contains the business rules specified by the bank.
  */
 public class BusinessRules {
 
@@ -38,11 +35,11 @@ public class BusinessRules {
     private static final int NUM_OF_ALLOWED_TRANSACTIONS = 5;
 
     /**
-     * Checks if the user's balance is larger than the amount.
+     * Checks if the user's balance is larger than the withdrawal amount.
      *
-     * @param balance a user account's balance.
-     * @param amount amount to withdraw.
-     * @return true if the withdrawal is allowed; false otherwise.
+     * @param balance the user's balance.
+     * @param amount the amount of money to withdraw.
+     * @return true if the withdrawal transaction is allowed; false otherwise.
      */
     public static boolean isValidWithdraw(double balance, double amount) {
         return balance >= amount && amount <= MAX_WITHDRAW && amount >= MIN_WITHDRAW;
@@ -51,9 +48,9 @@ public class BusinessRules {
     /**
      * Checks if the user's balance is larger than the amount.
      *
-     * @param balance a user account's balance.
-     * @param amount amount to transfer.
-     * @return true if the transfer is allowed; false otherwise.
+     * @param balance the user's balance.
+     * @param amount the amount of money to transfer.
+     * @return true if the transfer transaction is allowed; false otherwise.
      */
     public static boolean isValidTransfer(double balance, double amount) {
 
@@ -61,9 +58,9 @@ public class BusinessRules {
     }
 
     /**
-     * Checks if the amount meets the banking rules.
+     * Checks if the amount of money to deposit meets the banking rules.
      *
-     * @param amount amount to deposit.
+     * @param amount the amount of money to deposit.
      * @return true if the amount meets the banking rules; false otherwise.
      */
     public static boolean isValidDeposit(double amount) {
@@ -71,11 +68,10 @@ public class BusinessRules {
     }
 
     /**
-     * Checks if this number of transactions is valid according to the banking
-     * rules.
+     * Compares the passed number of transactions to the number of allowed transactions per day.
      *
-     * @param numOfTransactions number of transactions per day
-     * @return true if number of transactions is less than or equal number of
+     * @param numOfTransactions the number of transactions per day.
+     * @return true if the number of transactions is less than or equal to the number of
      * allowed transactions; false otherwise.
      */
     public static boolean isValidTransaction(int numOfTransactions) {
