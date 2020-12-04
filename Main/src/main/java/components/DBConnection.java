@@ -24,7 +24,7 @@ public class DBConnection {
     /**
      * Establishes a connection with the database.
      *
-     * @return an object of {@link Connection}Connection class if the connection
+     * @return an object of the Connection class if the connection
      * is successful; null otherwise;
      */
     public static Connection connectDB() {
