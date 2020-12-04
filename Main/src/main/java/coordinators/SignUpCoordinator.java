@@ -5,7 +5,7 @@ import components.Registration;
 /**
  * The <b>SignUpCoordinator</b> class is a sub class of
  * {@link GeneralCoordinator} class, it contains methods that check the user's
- * input from {@link SignUpPage} and a connection to the database through
+ * input from {@link gui.SignUpPage} and a connection to the database through
  * {@link Registration} class.
  *
  * @author youmna
