@@ -712,7 +712,8 @@ public class HomePage extends javax.swing.JFrame {
 
     /**
      * Logs the user out.
-     * @param evt 
+     *
+     * @param evt
      */
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
         this.dispose();
