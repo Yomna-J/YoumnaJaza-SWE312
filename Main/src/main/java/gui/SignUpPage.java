@@ -3,9 +3,9 @@ package gui;
 import coordinators.SignUpCoordinator;
 import javax.swing.JOptionPane;
 
-
 /**
  * The <b>SignUpPage</b> JFrame is the GUI for registration.
+ *
  * @author youmna
  */
 public class SignUpPage extends javax.swing.JFrame {
@@ -170,6 +170,11 @@ public class SignUpPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
+    /**
+     * Switches the page back to the sign-in page.
+     *
+     * @param evt
+     */
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
         new SignInPage().setVisible(true);
@@ -181,12 +186,12 @@ public class SignUpPage extends javax.swing.JFrame {
 
     /**
      * Creates an object of {@link SignUpCoordinator} to check the user's input.
-     * @param evt 
+     *
+     * @param evt
      */
     private void signUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBtnActionPerformed
 
         SignUpCoordinator sCoordinator = new SignUpCoordinator();
-
         if (!sCoordinator.isAlphabetic(nameField.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Name", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (passField.getPassword().length == 0) {
@@ -208,9 +213,7 @@ public class SignUpPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You've registered successfully, Your Account Number is: " + sCoordinator.getAccountNum());
             this.dispose();
             new SignInPage().setVisible(true);
-
         }
-
     }//GEN-LAST:event_signUpBtnActionPerformed
 
     /**
