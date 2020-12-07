@@ -2,12 +2,12 @@
 This document involves programming naming conventions and the documentation of the project.
   
 ***
-## Table of Contenets
+## Table of Contents
 * [Design](#Design)
 * [UML Diagram](#UML-Diagram)
 * [Choice of Programming Language](#Choice-of-Programming-Language)
 * [Our Location on The Technology Wave](#Our-Location-on-The-Technology-Wave)
-* [Selection of Major Constraction Practices](#Selection-of-Major-Constraction-Practices)
+* [Selection of Major Construction Practices](#Selection-of-Major-Constraction-Practices)
 * [Tasks Schedule](#Tasks_Schedule)
 * [Programming Naming Conventions](#Programming-Naming-Conventions)
 * [Formatting & Comments](#Formatting-&-Comments)
@@ -42,27 +42,26 @@ This document involves programming naming conventions and the documentation of t
 ***  
 ## Choice of Programming Language
 
- * ### Programming Language:
-   As choosing a familiar programming language increases productivity, I chose Java since I'm more familiar with its libraries. On the other hand, I used Maven (software project management and comprehension tool) since it allows to handle dependencies easily and to specify the details of building the project and creating the JAR file. Choosing Java also helped to find multiple APIs to send an OTP to the user's email.
+As choosing a familiar programming language increases productivity, I chose Java since I'm more familiar with its libraries. On the other hand, I used Maven (software project management and comprehension tool) since it allows to handle dependencies easily and to specify the details of building the project and creating the JAR file. Choosing Java also helped to find multiple APIs to send an OTP to the user's email.
 
  ***
  ## Our Location on The Technology Wave
  Fortunately, the project can be done using late-wave programming, where everything is well documented and integrated, it also helps to find solutions to any problem easily.
  ***
- ## Selection of Major Constraction Practices
+ ## Selection of Major Construction Practices
 The coding process follows the solo development approach and by using some online resources to solve an issue, in addition to testing and debugging the code each time a new requirement is added. 
 
  * ### Tools:
     - **IDE:** Apache NetBeans IDE 12.0
     - **Build Automation Tool:** Apache Maven.
     - **JDK Version:** JDK-14.0.2
-    - **Version Conrol:** GitHub.
+    - **Version Control:** GitHub.
     - **Email Sending API:** SendGrid.
     - **Documentation Generator :** Javadoc.
     - **Database Management System:** MySQL.
     - **Database Administration Tool:** phpMyAdmin.
     - **Database Hosting:** Local host using XAMPP.
-    - **Java Executable Wrappe:** Launch4j.
+    - **Java Executable Wrapper:** Launch4j.
  ***
  ## Tasks Schedule
  
@@ -124,8 +123,8 @@ The coding process follows the solo development approach and by using some onlin
 ***
 ## Formatting & Comments
   ### Format:  
-  * Use defulat NetBeasns formatting by pressing : `Alt + Shift + F`.
-  * Leave space beteen variables/methods and comparison/assinment symbols : `int age = 15;` , `if (age == 24)`.
+  * Use default NetBeasns formatting by pressing : `Alt + Shift + F`.
+  * Leave space between variables/methods and comparison/assignment symbols : `int age = 15;` , `if (age == 24)`.
   ### Comments & Javadoc :
   * Comments are only added to clarify any vague code.
   * Javadoc shall be added to each class, method, and variable, with a brief description including the parameters and return value.
