@@ -149,6 +149,7 @@ The coding process follows the solo development approach and by using some onlin
 
   <img width=400 src="Assets//OTP%20email.png">  
   
+  
 
   
   
