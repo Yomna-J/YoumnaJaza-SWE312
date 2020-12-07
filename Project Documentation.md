@@ -51,7 +51,7 @@ This document involves programming naming conventions and the documentation of t
  ***
  ## Selection of Major Constraction Practices
 The coding process follows the solo development approach and by using some online resources to solve an issue, in addition to testing and debugging the code each time a new requirement is added. 
-
+  
  * ### Tools:
     - **IDE:** Apache NetBeans IDE 12.0
     - **Build Automation Tool:** Apache Maven.
