@@ -1,5 +1,5 @@
 # SWE312-Project
-This is a repository for Software Construction & User Interface (SWE312) project.
+This is a repository for Software Construction & User Interface (SWE312) Banking System project.
 ***
 # Table of Content:
 * [A01 (My First GUI Game)](A01/Youmna%20Jaza/MyFirstGUI/src/main/java/mainGUI.java)
