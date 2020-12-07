@@ -126,7 +126,7 @@ The coding process follows the solo development approach and by using some onlin
   ### Format:  
   * Use defulat NetBeasns formatting by pressing : `Alt + Shift + F`.
   * Leave space beteen variables/methods and comparison/assinment symbols : `int age = 15;` , `if (age == 24)`.
-  ### Comments & javaDoc :
+  ### Comments & Javadoc :
   * Comments are only added to clarify any vague code.
   * Javadoc shall be added to each class, method, and variable, with a brief description including the parameters and return value.
  
