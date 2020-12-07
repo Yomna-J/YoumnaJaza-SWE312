@@ -146,8 +146,7 @@ The coding process follows the solo development approach and by using some onlin
       - The minimum amount per each transfer operation is: 1000.0  
   ### Signing In & OTP :
   * The user can sign in using the 6-digits account number and password.
-  * The user can sign in using the account number and an OTP that's sent the email associated with the account number. The OTP is randomly generated and sent to the  
-  user's email by using _**SendGrid API**_ .  
+  * The user can sign in using the account number and an OTP that's sent the email associated with the account number. The OTP is randomly generated and sent to the user's email by using _**SendGrid API**_ .  
 
   <img width=400 src="Assets//OTP%20email.png">  
   
