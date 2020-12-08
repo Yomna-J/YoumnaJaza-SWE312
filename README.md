@@ -6,7 +6,7 @@ Course: SWE312 Software Constraction & User Interface
 Lecturer: Ms. Layla Albabtain  
 
 ***
-# Table of Content:
+# Table of Contents:
 * [A01 (My First GUI Game)](A01/Youmna%20Jaza/MyFirstGUI/src/main/java/mainGUI.java)
 * [Main project](Main)
 * [Project Documentation](Project%20Documentation.md)
