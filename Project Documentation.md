@@ -62,7 +62,7 @@ The coding process follows the solo development approach and by using some onlin
     - **Database Management System:** MySQL.
     - **Database Administration Tool:** phpMyAdmin.
     - **Database Hosting:** Local host using XAMPP.
-    - **Java Executable Wrappe:** Launch4j.
+    - **Java Executable Wrapper:** Launch4j.
  ***
  ## Tasks Schedule
  
