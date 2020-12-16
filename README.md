@@ -4,7 +4,7 @@ This is a repository for Software Construction & User Interface (SWE312) course.
 By: Youmna Jaza  
 Course: SWE312 Software Constraction & User Interface  
 Lecturer: Ms. Layla Albabtain  
-
+Date: First Semester 2020/2021 (20201)
 ***
 # Table of Contents:
 * [A01 (My First GUI Game)](A01/Youmna%20Jaza/MyFirstGUI/src/main/java/mainGUI.java)
