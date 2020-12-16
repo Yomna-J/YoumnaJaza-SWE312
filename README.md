@@ -1,5 +1,5 @@
 # SWE312-Project
-This is a repository for Software Construction & User Interface (SWE312) Banking System project.  
+This is a repository for Software Construction & User Interface (SWE312) course. It includes Assigments and the project. 
   
 By: Youmna Jaza  
 Course: SWE312 Software Constraction & User Interface  
