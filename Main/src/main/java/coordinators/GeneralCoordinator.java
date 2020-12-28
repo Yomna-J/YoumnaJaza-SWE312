@@ -162,7 +162,7 @@ public class GeneralCoordinator {
         Email from = new Email("------------------Hidden-------------");
         Email to = new Email(email);
         String subject = "Banking System One time password";
-        Content content = new Content("text/plain", "You're one time password is: " + otp);
+        Content content = new Content("text/plain", "Your one time password is: " + otp);
         Mail mail = new Mail(from, subject, to, content);
         SendGrid sg = new SendGrid("------------Hidden---------------");
         Request request = new Request();

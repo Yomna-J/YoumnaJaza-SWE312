@@ -1,12 +1,12 @@
 # SWE312-Project
-This is a repository for Software Construction & User Interface (SWE312) Banking System project.  
+This is a repository for Software Construction & User Interface (SWE312) course. It includes Assignments and the project. 
   
 By: Youmna Jaza  
 Course: SWE312 Software Constraction & User Interface  
 Lecturer: Ms. Layla Albabtain  
-
+Date: First Semester 2020/2021 (20201)
 ***
-# Table of Content:
+# Table of Contents:
 * [A01 (My First GUI Game)](A01/Youmna%20Jaza/MyFirstGUI/src/main/java/mainGUI.java)
 * [Main project](Main)
 * [Project Documentation](Project%20Documentation.md)
